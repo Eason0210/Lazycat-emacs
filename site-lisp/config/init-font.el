@@ -84,6 +84,12 @@
 
 ;;; Code:
 
+(defconst *is-a-win64* (eq system-type 'windows-nt))
+(defconst *is-a-linux* (eq system-type 'gnu/linux))
+(defconst *is-a-mac* (eq system-type 'darwin))
+
+(when *is-a-mac* 
+
 (let ((emacs-font-size 14)
       emacs-font-name)
   (cond
@@ -104,6 +110,32 @@
     (buffer-face-mode))
 
   (add-hook 'org-mode-hook 'org-buffer-face-mode-variable))
+
+	)
+
+(when *is-a-win64*
+  ;;font setting
+  (setq fonts '("Inconsolata Bold" "华文楷体"))
+  (set-face-attribute 'default nil :font
+                      (format "%s:pixelsize=%d" (car fonts) 20))
+  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font) charset
+                      (font-spec :family (car (cdr fonts)))))
+  (setq face-font-rescale-alist '("华文楷体" . 1.0))
+
+
+  (setq w32-apps-modifier 'control)
+)
+
+
+;;(when *is-a-linux*
+  ;;(setq fonts '("Inconsolata" "STKaiti"))
+  ;;(set-face-attribute 'default nil :font
+                      ;;(format "%s:pixelsize=%d" (car fonts) 18))
+  ;;(dolist (charset '(kana han symbol cjk-misc bopomofo))
+    ;;(set-fontset-font (frame-parameter nil 'font) charset
+                      ;;(font-spec :family (car (cdr fonts)))))
+  ;;(setq face-font-rescale-alist '("STKaiti" . 1.0)))
 
 
 (setq-default mode-line-format (remove 'mode-line-buffer-identification mode-line-format))
