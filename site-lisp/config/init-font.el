@@ -105,6 +105,9 @@
 
   (add-hook 'org-mode-hook 'org-buffer-face-mode-variable))
 
+
+(setq-default mode-line-format (remove 'mode-line-buffer-identification mode-line-format))
+
 (provide 'init-font)
 
 ;;; init-font.el ends here
