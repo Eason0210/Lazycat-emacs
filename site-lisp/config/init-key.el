@@ -3,6 +3,15 @@
   (setq mac-option-modifier 'super)
   (setq mac-command-modifier 'meta))
 
+(when (eq system-type 'windows-nt)
+;; make PC keyboard's Win key or other to type Super or Hyper, for emacs running on Windows.
+(setq w32-pass-lwindow-to-system nil)
+(setq w32-lwindow-modifier 'super) ; Left Windows key
+
+(setq w32-pass-apps-to-system nil)
+(setq w32-apps-modifier 'super) ; Menu/App key
+  )
+
 ;;; ### Unset key ###
 ;;; --- 卸载按键
 (lazy-load-unset-keys                   ;全局按键的卸载
