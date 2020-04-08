@@ -86,6 +86,9 @@
 ;;; Code:
 (awesome-tab-mode t)
 
+;;(if (eq system-type 'windows-nt)
+;;(setq awesome-tab-height 120)
+;;)
 (provide 'init-awesome-tab)
 
 ;;; init-awesome-tab.el ends here

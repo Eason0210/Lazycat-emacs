@@ -88,7 +88,7 @@
 (defconst *is-a-linux* (eq system-type 'gnu/linux))
 (defconst *is-a-mac* (eq system-type 'darwin))
 
-(when *is-a-mac* 
+(when *is-a-mac*
 
 (let ((emacs-font-size 14)
       emacs-font-name)
@@ -124,7 +124,7 @@
   (setq face-font-rescale-alist '("华文楷体" . 1.0))
 
 
-  (setq w32-apps-modifier 'control)
+  ;; (setq w32-apps-modifier 'control)
 )
 
 
