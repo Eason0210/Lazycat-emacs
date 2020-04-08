@@ -88,9 +88,9 @@
 (defconst *is-a-linux* (eq system-type 'gnu/linux))
 (defconst *is-a-mac* (eq system-type 'darwin))
 
-(when *is-a-mac*
+(when *is-a-win64*
 
-(let ((emacs-font-size 14)
+(let ((emacs-font-size 13)
       emacs-font-name)
   (cond
    ((featurep 'cocoa)
@@ -105,7 +105,7 @@
   (defun org-buffer-face-mode-variable ()
     (interactive)
     (make-face 'width-font-face)
-    (set-face-attribute 'width-font-face nil :font "等距更纱黑体 SC 15")
+    (set-face-attribute 'width-font-face nil :font "STKaiti 15")
     (setq buffer-face-mode-face 'width-font-face)
     (buffer-face-mode))
 
@@ -128,14 +128,14 @@
 )
 
 
-;;(when *is-a-linux*
-  ;;(setq fonts '("Inconsolata" "STKaiti"))
-  ;;(set-face-attribute 'default nil :font
-                      ;;(format "%s:pixelsize=%d" (car fonts) 18))
-  ;;(dolist (charset '(kana han symbol cjk-misc bopomofo))
-    ;;(set-fontset-font (frame-parameter nil 'font) charset
-                      ;;(font-spec :family (car (cdr fonts)))))
-  ;;(setq face-font-rescale-alist '("STKaiti" . 1.0)))
+(when *is-a-linux*
+  (setq fonts '("Inconsolata" "STKaiti"))
+  (set-face-attribute 'default nil :font
+                      (format "%s:pixelsize=%d" (car fonts) 18))
+  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font) charset
+                      (font-spec :family (car (cdr fonts)))))
+  (setq face-font-rescale-alist '("STKaiti" . 1.0)))
 
 
 (setq-default mode-line-format (remove 'mode-line-buffer-identification mode-line-format))
