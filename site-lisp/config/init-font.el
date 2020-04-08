@@ -88,7 +88,7 @@
 (defconst *is-a-linux* (eq system-type 'gnu/linux))
 (defconst *is-a-mac* (eq system-type 'darwin))
 
-(when *is-a-win64*
+(when *is-a-mac*
 
 (let ((emacs-font-size 13)
       emacs-font-name)
@@ -111,6 +111,7 @@
 
   (add-hook 'org-mode-hook 'org-buffer-face-mode-variable))
 
+  (setq-default mode-line-format (remove 'mode-line-buffer-identification mode-line-format))
 	)
 
 (when *is-a-win64*
@@ -123,8 +124,8 @@
                       (font-spec :family (car (cdr fonts)))))
   (setq face-font-rescale-alist '("华文楷体" . 1.0))
 
+  (setq-default mode-line-format (remove 'mode-line-buffer-identification mode-line-format))
 
-  ;; (setq w32-apps-modifier 'control)
 )
 
 
@@ -138,7 +139,7 @@
   (setq face-font-rescale-alist '("STKaiti" . 1.0)))
 
 
-(setq-default mode-line-format (remove 'mode-line-buffer-identification mode-line-format))
+
 
 (provide 'init-font)
 
