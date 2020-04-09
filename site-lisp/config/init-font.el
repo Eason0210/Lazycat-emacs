@@ -88,32 +88,7 @@
 (defconst *is-a-linux* (eq system-type 'gnu/linux))
 (defconst *is-a-mac* (eq system-type 'darwin))
 
-(when *is-a-mac*
-
-(let ((emacs-font-size 13)
-      emacs-font-name)
-  (cond
-   ((featurep 'cocoa)
-    (setq emacs-font-name "Monaco"))
-   ((string-equal system-type "gnu/linux")
-    (setq emacs-font-name "WenQuanYi Micro Hei Mono")))
-  (when (display-grayscale-p)
-    (set-frame-font (format "%s-%s" (eval emacs-font-name) (eval emacs-font-size)))
-    (set-fontset-font (frame-parameter nil 'font) 'unicode (eval emacs-font-name))))
-
-(with-eval-after-load 'org
-  (defun org-buffer-face-mode-variable ()
-    (interactive)
-    (make-face 'width-font-face)
-    (set-face-attribute 'width-font-face nil :font "STKaiti 15")
-    (setq buffer-face-mode-face 'width-font-face)
-    (buffer-face-mode))
-
-  (add-hook 'org-mode-hook 'org-buffer-face-mode-variable))
-
-  (setq-default mode-line-format (remove 'mode-line-buffer-identification mode-line-format))
-	)
-
+;; Windows OS
 (when *is-a-win64*
   ;;font setting
   (setq fonts '("Inconsolata Bold" "华文楷体"))
@@ -123,12 +98,25 @@
     (set-fontset-font (frame-parameter nil 'font) charset
                       (font-spec :family (car (cdr fonts)))))
   (setq face-font-rescale-alist '("华文楷体" . 1.0))
-
+  ;; fixed mode-line issue, keep it as a line
   (setq-default mode-line-format (remove 'mode-line-buffer-identification mode-line-format))
 
 )
 
+;; Mac OS
+(when *is-a-mac*
+  (setq fonts '("Inconsolata" "STKaiti"))
+  (set-face-attribute 'default nil :font
+                      (format "%s:pixelsize=%d" (car fonts) 16))
+  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font) charset
+                      (font-spec :family (car (cdr fonts)))))
+  (setq face-font-rescale-alist '("STKaiti" . 1.0))
+  ;; fixed mode-line issue, keep it as a line
+  (setq-default mode-line-format (remove 'mode-line-buffer-identification mode-line-format))
+)
 
+;; Linux OS
 (when *is-a-linux*
   (setq fonts '("Inconsolata" "STKaiti"))
   (set-face-attribute 'default nil :font
@@ -137,8 +125,6 @@
     (set-fontset-font (frame-parameter nil 'font) charset
                       (font-spec :family (car (cdr fonts)))))
   (setq face-font-rescale-alist '("STKaiti" . 1.0)))
-
-
 
 
 (provide 'init-font)
