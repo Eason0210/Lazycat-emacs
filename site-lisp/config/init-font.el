@@ -84,47 +84,45 @@
 
 ;;; Code:
 
-(defconst *is-a-win64* (eq system-type 'windows-nt))
-(defconst *is-a-linux* (eq system-type 'gnu/linux))
-(defconst *is-a-mac* (eq system-type 'darwin))
+;; (defconst *is-a-win64* (eq system-type 'windows-nt))
+;; (defconst *is-a-linux* (eq system-type 'gnu/linux))
+;; (defconst *is-a-mac* (eq system-type 'darwin))
 
-;; Windows OS
-(when *is-a-win64*
-  ;;font setting
-  (setq fonts '("Inconsolata Bold" "华文楷体"))
-  (set-face-attribute 'default nil :font
-                      (format "%s:pixelsize=%d" (car fonts) 20))
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font (frame-parameter nil 'font) charset
-                      (font-spec :family (car (cdr fonts)))))
-  (setq face-font-rescale-alist '("华文楷体" . 1.0))
-  ;; fixed mode-line issue, keep it as a line
-  (setq-default mode-line-format (remove 'mode-line-buffer-identification mode-line-format))
+(setq fonts
+      (cond ((eq system-type 'darwin)     '("Monaco"    "STKaiti"))
+            ((eq system-type 'gnu/linux)  '("Menlo"     "WenQuanYi Zen Hei"))
+            ((eq system-type 'windows-nt) '("Inconsolata"  "华文楷体"))))
+(set-face-attribute 'default nil :font
+                    (format "%s:pixelsize=%d" (car fonts) 14))
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+  (set-fontset-font (frame-parameter nil 'font) charset
+                    (font-spec :family (car (cdr fonts)))))
+;; Fix chinese font width and rescale
+(setq face-font-rescale-alist '(("华文楷体" . 1.0) ("WenQuanYi Zen Hei" . 1.0) ("STKaiti". 1.2)))
 
-)
 
-;; Mac OS
-(when *is-a-mac*
-  (setq fonts '("Inconsolata" "STKaiti"))
-  (set-face-attribute 'default nil :font
-                      (format "%s:pixelsize=%d" (car fonts) 16))
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font (frame-parameter nil 'font) charset
-                      (font-spec :family (car (cdr fonts)))))
-  (setq face-font-rescale-alist '("STKaiti" . 1.0))
-  ;; fixed mode-line issue, keep it as a line
-  (setq-default mode-line-format (remove 'mode-line-buffer-identification mode-line-format))
-)
+;; ;; Windows OS
+;; (when *is-a-win64*
+;;   ;;font setting
+;;   (setq fonts '("Inconsolata Bold" "华文楷体"))
+;;   (set-face-attribute 'default nil :font
+;;                       (format "%s:pixelsize=%d" (car fonts) 20))
+;;   (dolist (charset '(kana han symbol cjk-misc bopomofo))
+;;     (set-fontset-font (frame-parameter nil 'font) charset
+;;                       (font-spec :family (car (cdr fonts)))))
+;;   (setq face-font-rescale-alist '("华文楷体" . 1.0))
+;; )
 
-;; Linux OS
-(when *is-a-linux*
-  (setq fonts '("Inconsolata" "STKaiti"))
-  (set-face-attribute 'default nil :font
-                      (format "%s:pixelsize=%d" (car fonts) 18))
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font (frame-parameter nil 'font) charset
-                      (font-spec :family (car (cdr fonts)))))
-  (setq face-font-rescale-alist '("STKaiti" . 1.0)))
+
+;; ;; Linux OS
+;; (when *is-a-linux*
+;;   (setq fonts '("Inconsolata" "STKaiti"))
+;;   (set-face-attribute 'default nil :font
+;;                       (format "%s:pixelsize=%d" (car fonts) 18))
+;;   (dolist (charset '(kana han symbol cjk-misc bopomofo))
+;;     (set-fontset-font (frame-parameter nil 'font) charset
+;;                       (font-spec :family (car (cdr fonts)))))
+;;   (setq face-font-rescale-alist '("STKaiti" . 1.0)))
 
 
 (provide 'init-font)
