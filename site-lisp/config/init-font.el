@@ -100,7 +100,7 @@
   (setq fonts '("Inconsolata" "STKaiti"))
   (set-face-attribute 'default nil :font
                     (format "%s:pixelsize=%d" (car fonts) 18))
-  (setq face-font-rescale-alist '(("STKaiti". 1.2))))
+  (setq face-font-rescale-alist '(("STKaiti". 1.0))))
 
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font) charset
