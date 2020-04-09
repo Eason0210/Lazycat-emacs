@@ -93,7 +93,7 @@
 (when (eq system-type 'windows-nt)
   (setq fonts '("Inconsolata" "华文楷体"))
   (set-face-attribute 'default nil :font
-                    (format "%s:pixelsize=%d" (car fonts) 20))
+                    (format "%s:pixelsize=%d" (car fonts) 22))
   (setq face-font-rescale-alist '(("华文楷体". 1.0))))
 
 (when (eq system-type 'gnu/linux)
