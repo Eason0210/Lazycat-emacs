@@ -5,11 +5,14 @@
 
 (when (eq system-type 'windows-nt)
   (setq w32-pass-lwindow-to-system nil)
-  (setq w32-lwindow-modifier 'hyper) ; Left Windows key
+  (setq w32-lwindow-modifier 'super)
+  (setq w32-pass-rwindow-to-system nil)
+  (setq w32-rwindow-modifier 'super)
+  (w32-register-hot-key [s-])
 
   (setq w32-pass-apps-to-system nil)
-  (setq w32-apps-modifier 'super) ; Menu/App key
-
+  (setq w32-apps-modifier 'hyper)
+  (w32-register-hot-key [H-])
   )
 
 ;;; ### Unset key ###
