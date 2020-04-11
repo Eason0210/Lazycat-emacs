@@ -324,11 +324,11 @@
         ("M-:" . awesome-pair-jump-out-pair-and-newline) ;跳出括号并换行
         ))
 (lazy-load-set-keys awesome-pair-key-alist awesome-pair-mode-map)
-;;; ### Thingh-edit ###
+;;; ### Thing-edit ###
 ;;; --- 增强式编辑当前光标的对象
 (lazy-load-global-keys
  '(
-   ("M-s-h" . one-key-menu-thing-edit)  ;thing-edit 菜单
+   ("C-." . one-key-menu-thing-edit)  ;thing-edit 菜单
    )
  "init-thing-edit"
  )
@@ -671,7 +671,7 @@
    ("C-7" . xref-pop-marker-stack)
    ("C-8" . xref-find-definitions)
    ("C-9" . xref-find-definitions-other-window)
-   ("H-k" . xref-find-references)
+   ("C-s-f" . xref-find-references)
    ("M-," . nox-rename)
    ("M-." . nox-show-doc)
    )

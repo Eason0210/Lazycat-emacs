@@ -106,7 +106,7 @@
         (("c" . "Copy Comment") . thing-copy-comment)
         (("h" . "Copy Function") . thing-copy-defun)
         (("p" . "Copy Parentheses") . thing-copy-parentheses)
-        (("l" . "Copy Line") . thing-copy-line)
+        ;; (("l" . "Copy Line") . thing-copy-line)
         (("a" . "Copy To Line Begin") . thing-copy-to-line-beginning)
         (("e" . "Copy To Line End") . thing-copy-to-line-end)
         ;; Cut.
@@ -123,9 +123,18 @@
         (("C" . "Cut Comment") . thing-cut-comment)
         (("H" . "Cut Function") . thing-cut-defun)
         (("P" . "Cut Parentheses") . thing-cut-parentheses)
-        (("L" . "Cut Line") . thing-cut-line)
+        ;; (("L" . "Cut Line") . thing-cut-line)
         (("A" . "Cut To Line Begin") . thing-cut-to-line-beginning)
         (("E" . "Cut To Line End") . thing-cut-to-line-end)
+        ;; other
+        (("l" . "Copy Region") . thing-copy-region-or-line)
+        (("L" . "Cut Region") . thing-cut-region-or-line)
+        (("b" . "Copy Buffer") . thing-copy-whole-buffer)
+        (("B" . "Copy Buffer") . thing-cut-whole-buffer)
+        (("n" . "Copy Numer") . thing-copy-number)
+        (("N" . "Cut Numer") . thing-cut-number)
+        (("r" . "Copy Paragrap") . thing-copy-paragraph)
+        (("R" . "Cut Paragrap") . thing-cut-paragraph)
         ))
 
 (defun one-key-menu-thing-edit ()
