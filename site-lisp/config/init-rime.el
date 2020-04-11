@@ -83,13 +83,29 @@
 (require 'rime)
 
 ;;; Code:
-(setq rime-user-data-dir "/home/andy/.config/fcitx/rime")
 
+
+
+
+(when (eq system-type 'gnu/linux)
+(setq rime-user-data-dir "/home/aqua0210/.config/fcitx/rime")
 (setq rime-posframe-properties
       (list :background-color "#333333"
             :foreground-color "#dcdccc"
-            :font "WenQuanYi Micro Hei Mono-14"
+            :font "Inconsolata-14"
             :internal-border-width 10))
+  )
+(when (eq system-type 'darwin)
+  (setq rime-librime-root "~/lazycat-emacs/site-lisp/librime/dist")
+(setq rime-user-data-dir "~/erime/")
+(setq rime-posframe-properties
+      (list :background-color "#333333"
+            :foreground-color "#dcdccc"
+            :font "Monaco"
+            :internal-border-width 10))
+)
+
+
 
 (setq default-input-method "rime"
       rime-show-candidate 'posframe)

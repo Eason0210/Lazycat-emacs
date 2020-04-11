@@ -75,10 +75,11 @@
          (require 'init-auto-sudoedit)
          (require 'init-highlight-indent-guides)
 
-   	 (when (eq system-type 'gnu/linux)
-             (require 'init-rime)
-             (require 'init-eaf)
-             )
+         (when (eq system-type 'gnu/linux)
+           (require 'init-eaf))
+
+         (unless (eq system-type 'windows-nt)
+         (require 'init-rime))
 
          (require 'init-nox)
          (require 'init-sdcv)           ; Don't remove this line
