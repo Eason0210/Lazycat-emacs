@@ -27,7 +27,8 @@
     (require 'lazycat-theme)
     (lazycat-theme-load-with-sunrise)
     (when (featurep 'cocoa)
-      (require 'cache-path-from-shell))
+      (require 'cache-path-from-shell)
+      (exec-path-from-shell-initialize))
     (require 'lazy-load)
     (require 'one-key)
     (require 'awesome-pair)
@@ -79,7 +80,7 @@
            (require 'init-eaf))
 
          (unless (eq system-type 'windows-nt)
-         (require 'init-rime))
+           (require 'init-rime))
 
          (require 'init-nox)
          (require 'init-sdcv)           ; Don't remove this line

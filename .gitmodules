@@ -217,3 +217,12 @@
 [submodule "nox"]
 	path = site-lisp/extensions/nox
 	url = https://github.com/manateelazycat/nox.git
+[submodule "dante"]
+	path = site-lisp/extensions/dante
+	url =https://github.com/jyp/dante.git
+[submodule "lcr"]
+	path = site-lisp/extensions/lcr
+	url = https://github.com/jyp/lcr.git
+[submodule "exec-path-from-shell"]
+	path = site-lisp/extensions/exec-path-from-shell
+	url = https://github.com/purcell/exec-path-from-shell.git
