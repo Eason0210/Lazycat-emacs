@@ -73,7 +73,8 @@
 
 ;;; Require
 
-(require 'haskell-mode)
+(require 'haskell-mode-autoloads)
+(add-to-list 'Info-default-directory-list "~/lazycat-emacs/site-lisp/extensions/haskell-mode/")
 (require 'haskell-indentation)
 (require 'haskell-extension)
 

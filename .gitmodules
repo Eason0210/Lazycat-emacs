@@ -226,3 +226,6 @@
 [submodule "exec-path-from-shell"]
 	path = site-lisp/extensions/exec-path-from-shell
 	url = https://github.com/purcell/exec-path-from-shell.git
+[submodule "haskell-mode"]
+	path = site-lisp/extensions/haskell-mode
+	url = https://github.com/haskell/haskell-mode.git
