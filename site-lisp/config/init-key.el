@@ -3,7 +3,8 @@
   (setq mac-option-modifier 'super)
   (setq mac-command-modifier 'meta)
   (setq mac-right-option-modifier 'control)
-  (setq mac-function-modifier 'hyper))
+  ;; (setq mac-function-modifier 'hyper)
+  )
 
 (when (eq system-type 'windows-nt)
   (setq w32-pass-lwindow-to-system nil)
@@ -13,9 +14,9 @@
   (w32-register-hot-key [s-])
 
   (setq w32-pass-apps-to-system nil)
-  (setq w32-apps-modifier 'hyper)
-  (w32-register-hot-key [H-])
-;;  (define-key key-translation-map (kbd "<apps>") (kbd "M-x"))
+  ;; (setq w32-apps-modifier 'hyper)
+  ;; (w32-register-hot-key [H-])
+ (define-key key-translation-map (kbd "<apps>") (kbd "M-x"))
   )
 
 ;;

@@ -104,8 +104,13 @@
 ;; (add-hook 'haskell-cabal-mode 'subword-mode)
 
 (require 'dante)
-
+(add-hook 'haskell-mode-hook 'flycheck-mode)
 (add-hook 'haskell-mode-hook 'dante-mode)
+(setq flycheck-check-syntax-automatically '(save mode-enabled))
+(add-hook 'dante-mode-hook
+   '(lambda () (flycheck-add-next-checker 'haskell-dante
+                '(warning . haskell-hlint))))
+
 ;; (after-load 'dante
 ;;             (flycheck-add-next-checker 'haskell-dante
 ;;                                        '(warning . haskell-hlint)))
