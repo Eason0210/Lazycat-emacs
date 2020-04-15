@@ -113,7 +113,9 @@
         ;; Kill all buffers if with prefix argument.
         (mapc 'kill-buffer (buffer-list))
       ;; Kill unused buffers.
-      (kill-unused-buffers)
+      (unless (eq system-type 'windows-nt)
+        (kill-unused-buffers))
+
       ;; Save all buffers before exit.
       (auto-save-buffers))
     ;; Save session.

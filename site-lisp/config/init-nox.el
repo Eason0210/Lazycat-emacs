@@ -100,6 +100,8 @@
   (add-hook hook '(lambda ()
                     (require 'nox)
                     (nox-ensure))))
+(if (eq system-type 'windows-nt) 
+  (setq nox-python-path "c:/Python38/python.exe"))
 
 (lazy-load-set-keys
  '(
