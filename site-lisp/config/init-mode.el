@@ -168,6 +168,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.h$" . c++-mode)
                     ("\\.ll$" . llvm-mode)
                     ("\\.bc$" . hexl-mode)
+                    ("\\.pwmacro" . pwmacro-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
