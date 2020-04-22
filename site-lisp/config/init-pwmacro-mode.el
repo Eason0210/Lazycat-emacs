@@ -129,6 +129,8 @@
   (set-syntax-table pwmacro-mode-syntax-table)
   ;; code for syntax highlighting
   (setq font-lock-defaults '((pwmacro-font-lock-keywords)))
+  (setq-local comment-start "# ")
+  (setq-local comment-end "")
   )
 
 (provide 'init-pwmacro-mode)
