@@ -84,7 +84,9 @@
 ;;
 
 ;;; Require
-(require 'sdcv)
+(if (eq system-type 'windows-nt)
+    (require 'sdcvwin)
+  (require 'sdcv))
 
 ;;; Code:
 
@@ -92,6 +94,8 @@
 
 (setq sdcv-dictionary-data-dir
       (concat lazycat-emacs-root-dir "/sdcv-dict")) ;设置星际译王本地词典的目录
+(when (eq system-type 'windows-nt)
+  (setq sdcv-dictionary-data-dir "c:/home/Lazycat-emacs/site-lisp/sdcv-dict-win"))
 
 (setq sdcv-dictionary-simple-list    ;星际译王屏幕取词词典, 简单, 快速
       '("懒虫简明英汉词典"
