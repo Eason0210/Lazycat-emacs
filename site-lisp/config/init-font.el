@@ -91,10 +91,10 @@
   (setq face-font-rescale-alist '(("STKaiti". 1.2))))
 
 (when (eq system-type 'windows-nt)
-  (setq fonts '("Inconsolata" "华文楷体"))
+  (setq fonts '("Consolas" "华文楷体"))
   (set-face-attribute 'default nil :font
-                    (format "%s:pixelsize=%d" (car fonts) 22))
-  (setq face-font-rescale-alist '(("华文楷体". 1.0))))
+                      (format "%s:pixelsize=%d" (car fonts) 22))
+  (setq face-font-rescale-alist '(("华文楷体". 1.1))))
 
 (when (eq system-type 'gnu/linux)
   (setq fonts '("Inconsolata" "STKaiti"))
