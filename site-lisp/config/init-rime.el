@@ -83,6 +83,15 @@
 (require 'rime)
 
 ;;; Code:
+(when (eq system-type 'windows-nt)
+  (setq rime-user-data-dir "~/.emacs.d/emacs-rime/Rime")
+  (setq rime-share-data-dir "~/.emacs.d/emacs-rime/data")
+  (setq rime-posframe-properties
+        (list :background-color "#333333"
+              :foreground-color "#dcdccc"
+              :font "华文楷体"
+              :internal-border-width 10)))
+
 (when (eq system-type 'gnu/linux)
   (setq rime-user-data-dir "/home/aqua0210/.config/fcitx/rime")
   (setq rime-posframe-properties
