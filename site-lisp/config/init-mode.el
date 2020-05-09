@@ -142,6 +142,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.mustache\\'" . web-mode)
                     ("\\.djhtml\\'" . web-mode)
                     ("\\.html?\\'" . web-mode)
+                    ("\\.hta\\'" . web-mode)
                     ("\\.coffee\\'" . coffee-mode)
                     ("\\.coffee.erb\\'" . coffee-mode)
                     ("\\.js.erb\\'" . js-mode)
