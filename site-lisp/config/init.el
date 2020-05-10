@@ -75,7 +75,7 @@
          (require 'init-idle)
 
          (require 'init-auto-sudoedit)
-         (require 'init-highlight-indent-guides)
+         ;; (require 'init-highlight-indent-guides)
 
          (when (eq system-type 'gnu/linux)
            (require 'init-eaf))
