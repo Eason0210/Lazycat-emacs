@@ -89,10 +89,11 @@
                ))
   (add-hook hook
             '(lambda ()
-              (require 'olivetti)
-              (olivetti-mode 1)
-              (olivetti-set-width 120)
-              )))
+               (setq markdown-command "pandoc")
+               (require 'olivetti)
+               (olivetti-mode 1)
+               (olivetti-set-width 120)
+               )))
 
 (provide 'init-markdown-mode)
 
