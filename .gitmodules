@@ -235,3 +235,6 @@
 [submodule "lua-mode"]
 	path = site-lisp/extensions/lua-mode
 	url = https://github.com/immerrr/lua-mode.git
+[submodule "coffee-mode"]
+	path = site-lisp/extensions/coffee-mode
+	url = https://github.com/defunkt/coffee-mode.git
