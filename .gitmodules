@@ -232,3 +232,6 @@
 [submodule "markdown-mode"]
 	path = site-lisp/extensions/markdown-mode
 	url = https://github.com/jrblevin/markdown-mode.git
+[submodule "lua-mode"]
+	path = site-lisp/extensions/lua-mode
+	url = https://github.com/immerrr/lua-mode.git
