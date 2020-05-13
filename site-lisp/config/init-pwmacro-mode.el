@@ -131,6 +131,7 @@
   (setq font-lock-defaults '((pwmacro-font-lock-keywords)))
   (setq-local comment-start "# ")
   (setq-local comment-end "")
+  (display-line-numbers-mode)
   )
 
 (provide 'init-pwmacro-mode)
