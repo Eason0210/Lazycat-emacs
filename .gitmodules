@@ -238,3 +238,6 @@
 [submodule "coffee-mode"]
 	path = site-lisp/extensions/coffee-mode
 	url = https://github.com/defunkt/coffee-mode.git
+[submodule "csharp-mode"]
+	path = site-lisp/extensions/csharp-mode
+	url = https://github.com/josteink/csharp-mode.git
