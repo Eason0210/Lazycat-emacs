@@ -4,7 +4,7 @@
 ;; Description: Init csharp
 ;; Author: Eason Huang <aqua0210@163.com>
 ;; Maintainer: Eason Huang <aqua0210@163.com>
-;; Copyright (C) 2014, Eason Huang, all rights reserved.
+;; Copyright (C) 2020, Eason Huang, all rights reserved.
 ;; Created: 2029-05-18 23:50:45
 ;; Version: 0.1
 ;; Last-Updated: 2029-05-18 23:50:45
@@ -50,7 +50,7 @@
 ;;
 ;; And the following to your ~/.emacs startup file.
 ;;
-;; (require 'init-csharp-mode)
+;; (require 'init-csharp)
 ;;
 ;; No need more.
 
