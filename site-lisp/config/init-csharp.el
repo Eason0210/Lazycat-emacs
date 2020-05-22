@@ -80,10 +80,14 @@
 
 ;;; Require
 (require 'csharp-mode)
-
+(require 'omnisharp)
 ;;; Code:
 
+(eval-after-load
+  'company
+  '(add-to-list 'company-backends #'company-omnisharp))
 
+(add-hook 'csharp-mode-hook 'omnisharp-mode)
 
 (provide 'init-csharp)
 

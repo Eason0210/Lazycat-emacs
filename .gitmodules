@@ -241,3 +241,6 @@
 [submodule "csharp-mode"]
 	path = site-lisp/extensions/csharp-mode
 	url = https://github.com/josteink/csharp-mode.git
+[submodule "omnisharp-emacs"]
+	path = site-lisp/extensions/omnisharp-emacs
+	url = https://github.com/OmniSharp/omnisharp-emacs.git
