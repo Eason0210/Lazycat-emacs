@@ -2,16 +2,15 @@
 
 ;; Filename: init-rime.el
 ;; Description: Configuration for emacs-rime
-;; Author: Andy Stewart <lazycat.manatee@gmail.com>
-;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
-;; Copyright (C) 2020, Andy Stewart, all rights reserved.
+;; Author: Eason Huang <aqua0210@g163.com>
+;; Maintainer: Eason Huang <aqua0210@g163.com>
+;; Copyright (C) 2020, Eason Huang, all rights reserved.
 ;; Created: 2020-03-22 14:52:23
 ;; Version: 0.1
-;; Last-Updated: 2020-03-22 14:52:23
-;;           By: Andy Stewart
-;; URL: http://www.emacswiki.org/emacs/download/init-rime.el
+;; Last-Updated: 2020-05-22 14:52:23
+;;           By: Eason Huang
 ;; Keywords:
-;; Compatibility: GNU Emacs 26.3
+;; Compatibility: GNU Emacs 27.0.91
 ;;
 ;; Features that might be required by this library:
 ;;
@@ -111,6 +110,12 @@
 
 (setq default-input-method "rime"
       rime-show-candidate 'posframe)
+
+;; 根据使用的状况设定断言，注释和引号中需要输入中文，可直接切换到英文模式，其他情况使用Rime模式
+(setq rime-disable-predicates '(rime-predicate-prog-in-code-p              ; 代码中直接关闭
+                           rime-predicate-after-alphabet-char-p))     ; 紧跟英文后面直接关闭
+(setq rime-inline-predicates '(rime-predicate-space-after-cc-p             ; 中文接一个空格的后面
+                          rime-predicate-current-uppercase-letter-p)) ; 当前输入是大写字母的时候
 
 (lazy-load-set-keys
  '(
