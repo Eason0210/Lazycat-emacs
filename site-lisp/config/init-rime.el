@@ -64,10 +64,12 @@
 
 ;;; Change log:
 ;;
+;; 2020/05/22
+;;      * Improved to use predicate functions
+;;
 ;; 2020/03/22
 ;;      * First released.
-;;
-
+;;      
 ;;; Acknowledgements:
 ;;
 ;;
