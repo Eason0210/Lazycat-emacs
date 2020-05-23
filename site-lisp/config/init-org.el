@@ -109,8 +109,23 @@
                     (require 'org-table-auto-align)
                     (org-table-auto-align-mode)
 
-                     (setq truncate-lines nil) ;自动折行
-                     )))
+                    (setq truncate-lines nil) ;自动折行
+
+                    (require 'org-brain)
+                    (setq org-brain-path "~/org/brain")
+
+                    (define-key org-mode-map (kbd "C-c b") org-brain-prefix-map)
+                    (setq org-id-track-globally t)
+                    (setq org-id-locations-file "~/.emacs.d/.org-id-locations")
+                    (add-hook 'before-save-hook #'org-brain-ensure-ids-in-buffer)
+                    (push '("b" "Brain" plain (function org-brain-goto-end)
+                            "* %i%?" :empty-lines 1)
+                          org-capture-templates)
+                    (setq org-brain-visualize-default-choices 'all)
+                    (setq org-brain-title-max-length 12)
+                    (setq org-brain-include-file-entries nil
+                          org-brain-file-entries-use-title nil)
+                    )))
 
 (provide 'init-org)
 
