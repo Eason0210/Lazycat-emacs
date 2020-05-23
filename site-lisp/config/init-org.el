@@ -81,7 +81,6 @@
 
 ;;; Require
 
-
 ;;; Code:
 
 (with-eval-after-load 'org
@@ -111,6 +110,7 @@
 
                     (setq truncate-lines nil) ;自动折行
 
+                    ;;Org-brain
                     (require 'org-brain)
                     (setq org-brain-path "~/org/brain")
 
@@ -125,6 +125,11 @@
                     (setq org-brain-title-max-length 12)
                     (setq org-brain-include-file-entries nil
                           org-brain-file-entries-use-title nil)
+
+                    (setq org-brain-headline-entry-name-format-string "%2$s")
+
+                    (setq my/default-org-brain-file "brain")
+                    (setq org-brain-default-file-parent my/default-org-brain-file)
                     )))
 
 (provide 'init-org)
