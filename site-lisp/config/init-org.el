@@ -114,11 +114,11 @@
 
                     ;;Org-brain
                     (require 'org-brain)
-                    (setq org-brain-path "~/org/brain")
+                    (setq org-brain-path "~/Documents/Org/brain")
 
                     (define-key org-mode-map (kbd "C-c b") org-brain-prefix-map)
                     (setq org-id-track-globally t)
-                    (setq org-id-locations-file "~/.emacs.d/.org-id-locations")
+                    (setq org-id-locations-file "~/Documents/Org/brain/.org-id-locations")
                     (add-hook 'before-save-hook #'org-brain-ensure-ids-in-buffer)
                     (push '("b" "Brain" plain (function org-brain-goto-end)
                             "* %i%?" :empty-lines 1)
