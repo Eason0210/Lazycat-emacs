@@ -81,6 +81,8 @@
 
 ;;; Require
 
+(require 'org-capture)
+
 ;;; Code:
 
 (with-eval-after-load 'org
