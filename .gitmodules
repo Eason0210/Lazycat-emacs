@@ -247,3 +247,6 @@
 [submodule "org-brain"]
 	path = site-lisp/extensions/org-brain
 	url = https://github.com/Kungsgeten/org-brain.git
+[submodule "slime"]
+	path = site-lisp/extensions/slime
+	url = https://github.com/slime/slime.git
