@@ -91,6 +91,8 @@
  python-mode-map
  "python-extension")
 
+(setq python-shell-interpreter "python3")
+
 (provide 'init-python)
 
 ;;; init-python.el ends here
