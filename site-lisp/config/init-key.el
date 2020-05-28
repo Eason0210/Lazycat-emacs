@@ -1,10 +1,10 @@
 ;; Mac平台下交换 Option 和 Command 键。
-(when (featurep 'cocoa)
+
+(when (eq system-type 'darwin)
   (setq mac-option-modifier 'super)
   (setq mac-command-modifier 'meta)
   (setq mac-right-option-modifier 'control)
-  ;; (setq mac-function-modifier 'hyper)
-  )
+  (setq mac-pass-command-to-system nil))
 
 (when (eq system-type 'windows-nt)
   (setq w32-pass-lwindow-to-system nil)
@@ -14,9 +14,7 @@
   (w32-register-hot-key [s-])
 
   (setq w32-pass-apps-to-system nil)
-  ;; (setq w32-apps-modifier 'hyper)
-  ;; (w32-register-hot-key [H-])
- (define-key key-translation-map (kbd "<apps>") (kbd "M-x"))
+  (define-key key-translation-map (kbd "<apps>") (kbd "M-x"))
   )
 
 ;;
@@ -386,7 +384,7 @@
    ("M-p" . isearch-ring-retreat)      ;搜索历史向后
    ("M-n" . isearch-ring-adjust)       ;搜索历史向前
    ("M-y" . isearch-yank-kill) ;从 kill ring 中粘帖最后一项到搜索对象后
-   ("M-h" . isearch-yank-char) ;粘帖光标后的字符到搜索对象
+   ("M-H" . isearch-yank-char) ;粘帖光标后的字符到搜索对象
    ("M-e" . isearch-edit-string)        ;编辑搜索对象
    ("M-c" . isearch-toggle-case-fold)   ;切换大小写
    ("M-r" . isearch-toggle-regexp)      ;切换正则表达式
