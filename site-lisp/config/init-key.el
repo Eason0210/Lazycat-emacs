@@ -284,8 +284,6 @@
 (lazy-load-set-keys
  '(
    ("<f5>" . emacs-session-save)        ;退出emacs
-   ("C-4" . insert-changelog-date)      ;插入日志时间 (%Y/%m/%d)
-   ("C-&" . switch-to-messages)         ;跳转到 *Messages* buffer
    ))
 ;;; ### Awesome-Pair ###
 ;;; --- 结构化编程
@@ -479,7 +477,9 @@
 (lazy-load-global-keys
  '(
    ("M-s-i" . ielm-toggle)              ;切换ielm
-   ("s-p" . insert-standard-date)
+   ("s-p" . insert-standard-date)       ;插入标准日期
+   ("C-4" . insert-changelog-date)      ;插入日志时间 (%Y/%m/%d)
+   ("C-&" . switch-to-messages)         ;跳转到 *Messages* buffer
    )
  "lazycat-toolkit")
 (eval-after-load 'ielm-mode
@@ -675,5 +675,13 @@
    ("M-." . nox-show-doc)
    )
  "init-nox.el")
+
+(lazy-load-global-keys
+ '(
+   ("<f6>" . flyspell-auto-correct-previous-word)
+   ("<f7>" . flyspell-buffer)
+   ("C-," . flyspell-correct-wrapper)
+   )
+ "init-ispell")
 
 (provide 'init-key)

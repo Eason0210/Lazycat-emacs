@@ -2,18 +2,18 @@
 
 ;; Filename: init-ispell.el
 ;; Description: Ispell configuration
-;; Author: Andy Stewart lazycat.manatee@gmail.com
-;; Maintainer: Andy Stewart lazycat.manatee@gmail.com
-;; Copyright (C) 2008, 2009, Andy Stewart, all rights reserved.
-;; Created: 2008-10-20 09:27:08
+;; Author: Eason Huang aqua0210@163.com
+;; Maintainer: Eason Huang aqua0210@163.com
+;; Copyright (C) 2020, Eason Huang, all rights reserved.
+;; Created: 2020-05-30 21:26:55
 ;; Version: 0.1
-;; Last-Updated: 2008-10-20 09:27:11
-;;           By: Andy Stewart
+;; Last-Updated: 2020-05-30 21:27:03
+;;           By: Eason Huang
 ;; URL:
 ;; Keywords: ispell
-;; Compatibility: GNU Emacs 23.0.60.1
+;; Compatibility: GNU Emacs 27.0.91
 ;;
-;; Features that might be requried by this library:
+;; Features that might be required by this library:
 ;;
 ;;
 ;;
@@ -57,8 +57,8 @@
 
 ;;; Change log:
 ;;
-;; 2008/10/20
-;;      First realead.
+;; 2020/05/30
+;;      First released.
 ;;
 
 ;;; Acknowledgements:
@@ -73,15 +73,41 @@
 
 ;;; Require
 
-(require 'ispell)
+(require 'flyspell-correct)
+(require 'flyspell-correct-ido)
 
 ;;; Code:
 
-(setq-default ispell-program-name "aspell")     ;用aspell替换ispell, 更加智能
-(setq-default ispell-extra-args '("--reverse")) ;修复aspell与ispell冲突的bug
-(setq ispell-personal-dictionary "~/.emacs.d/lazycat-emacs/Configure-File/Ispell/personal-dictionary") ;设置个人词典
 (setq ispell-silently-savep t)          ;保存自己的个人词典不需要询问
-(setq ispell-dictionary "english")      ;设置英文词典
+(setq flyspell-issue-message-flag nil)
+(setq ispell-dictionary "en_US"
+      ispell-program-name "aspell"
+      ispell-personal-dictionary (expand-file-name "~/Org/aspell/personal-dictionary/.aspell.en.pws")
+      )
+
+(setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US" "--run-together"))
+
+;; (global-set-key (kbd "<f7>") 'flyspell-buffer)
+
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))                ;文本模式启动拼写检查
+(dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode -1))))               ;更改日志和日志编辑模式关闭拼写检查
+
+(add-hook 'prog-mode-hook                                  ;编程模式仅在注释启用拼写检查
+          (lambda ()
+            (flyspell-prog-mode)
+            ))
+
+(add-to-list 'ispell-skip-region-alist '("^#+BEGIN_SRC" . "^#+END_SRC")) ;不检查Org-mode的内嵌代码
+
+;; unset keybindings of flyspell
+(with-eval-after-load "flyspell"
+  (define-key flyspell-mode-map (kbd "C-.") nil)
+  (define-key flyspell-mode-map (kbd "C-;") nil)
+  (define-key flyspell-mode-map (kbd "C-,") nil)
+  (define-key flyspell-mode-map (kbd "C-M-i") nil)
+  )
 
 (provide 'init-ispell)
 
