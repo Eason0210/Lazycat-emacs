@@ -480,6 +480,7 @@
    ("s-p" . insert-standard-date)       ;插入标准日期
    ("C-4" . insert-changelog-date)      ;插入日志时间 (%Y/%m/%d)
    ("C-&" . switch-to-messages)         ;跳转到 *Messages* buffer
+   ("<f12>" . remove-control-M)
    )
  "lazycat-toolkit")
 (eval-after-load 'ielm-mode

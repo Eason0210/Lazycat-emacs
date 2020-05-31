@@ -81,13 +81,16 @@
 (setq ispell-silently-savep t)          ;保存自己的个人词典不需要询问
 (setq flyspell-issue-message-flag nil)
 (setq ispell-dictionary "en_US"
-      ispell-program-name "aspell"
-      ispell-personal-dictionary (expand-file-name "~/Org/aspell/personal-dictionary/.aspell.en.pws")
-      )
+      ispell-program-name "aspell")
+
+(when (eq system-type 'windows-nt)
+  (setq ispell-personal-dictionary (expand-file-name "~/Org/aspell/personal-dictionary/.aspell.en.pws")))
+
+(when (eq system-type 'darwin)
+  (setq ispell-personal-dictionary (expand-file-name "flyspell/.aspell.en.pws" user-emacs-directory)))
 
 (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US" "--run-together"))
 
-;; (global-set-key (kbd "<f7>") 'flyspell-buffer)
 
 (dolist (hook '(text-mode-hook))
   (add-hook hook (lambda () (flyspell-mode 1))))                ;文本模式启动拼写检查
