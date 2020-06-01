@@ -4,6 +4,9 @@
 ;; 字体设置
 (require 'init-font)
 
+;; 编码设置
+(require 'init-locales)
+
 (let (
       ;; 加载的时候临时增大`gc-cons-threshold'以加速启动速度。
       (gc-cons-threshold most-positive-fixnum)
