@@ -91,6 +91,7 @@
   (setq org-startup-indented t)                 ;默认缩进内容
 
   (define-key org-mode-map (kbd "C-,") nil)     ;取消设置org-mode的按键绑定
+  (define-key org-mode-map (kbd "M-h") nil)     ;取消设置org-mode的按键绑定
 
   (defun org-export-docx ()
     (interactive)

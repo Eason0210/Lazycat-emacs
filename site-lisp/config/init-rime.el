@@ -69,7 +69,7 @@
 ;;
 ;; 2020/03/22
 ;;      * First released.
-;;      
+;;
 ;;; Acknowledgements:
 ;;
 ;;
@@ -116,8 +116,8 @@
 ;; 根据使用的状况设定断言，注释和引号中需要输入中文，可直接切换到英文模式，其他情况使用Rime模式
 (setq rime-disable-predicates '(rime-predicate-prog-in-code-p              ; 代码中直接关闭
                            rime-predicate-after-alphabet-char-p))     ; 紧跟英文后面直接关闭
-(setq rime-inline-predicates '(rime-predicate-space-after-cc-p             ; 中文接一个空格的后面
-                          rime-predicate-current-uppercase-letter-p)) ; 当前输入是大写字母的时候
+;; (setq rime-inline-predicates '(rime-predicate-space-after-cc-p             ; 中文接一个空格的后面
+                          ;; rime-predicate-current-uppercase-letter-p)) ; 当前输入是大写字母的时候
 
 (lazy-load-set-keys
  '(
