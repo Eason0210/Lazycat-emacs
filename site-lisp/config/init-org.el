@@ -90,6 +90,8 @@
   (setq org-startup-folded nil)                 ;默认展开内容
   (setq org-startup-indented t)                 ;默认缩进内容
 
+  (define-key org-mode-map (kbd "C-,") nil)     ;取消设置org-mode的按键绑定
+
   (defun org-export-docx ()
     (interactive)
     (let ((docx-file (concat (file-name-sans-extension (buffer-file-name)) ".docx"))
@@ -127,11 +129,6 @@
                     (setq org-brain-title-max-length 12)
                     (setq org-brain-include-file-entries nil
                           org-brain-file-entries-use-title nil)
-
-                    ;; (setq org-brain-headline-entry-name-format-string "%2$s")
-
-                    ;; (setq my/default-org-brain-file "brain")
-                    ;; (setq org-brain-default-file-parent my/default-org-brain-file)
                     )))
 
 (provide 'init-org)

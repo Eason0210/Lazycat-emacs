@@ -250,3 +250,6 @@
 [submodule "slime"]
 	path = site-lisp/extensions/slime
 	url = https://github.com/slime/slime.git
+[submodule "flyspell-correct"]
+	path = site-lisp/extensions/flyspell-correct
+	url = https://github.com/d12frosted/flyspell-correct.git

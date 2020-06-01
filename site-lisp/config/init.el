@@ -26,7 +26,7 @@
     (require 'init-generic)
     (require 'lazycat-theme)
     (lazycat-theme-load-with-sunrise)
-    (when (featurep 'cocoa)
+    (when (eq system-type  'darwin)
       (require 'cache-path-from-shell)
       (exec-path-from-shell-initialize))
     (require 'lazy-load)
@@ -82,6 +82,7 @@
          (require 'init-rime)
          (require 'init-nox)
          (require 'init-sdcv)           ; Don't remove this line
+         (require 'init-ispell)
 
          ;; Restore session at last.
          (require 'init-session)
