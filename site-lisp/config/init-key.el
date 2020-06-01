@@ -643,8 +643,7 @@
 
 (lazy-load-global-keys
  '(
-   ("C-\\" . toggle-input-method)
-   ("s-\\" . rime-force-enable)
+   ("C-SPC" . toggle-input-method)
    ("C-`" . rime-send-keybinding)
    )
  "init-rime")
