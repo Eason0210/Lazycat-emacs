@@ -83,11 +83,7 @@
 (setq ispell-dictionary "en_US"
       ispell-program-name "aspell")
 
-(when (eq system-type 'windows-nt)
-  (setq ispell-personal-dictionary (expand-file-name "~/Org/aspell/personal-dictionary/.aspell.en.pws")))
-
-(when (eq system-type 'darwin)
-  (setq ispell-personal-dictionary (expand-file-name "flyspell/.aspell.en.pws" user-emacs-directory)))
+(setq ispell-personal-dictionary (expand-file-name "flyspell/.aspell.en.pws" user-emacs-directory))
 
 (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US" "--run-together"))
 
