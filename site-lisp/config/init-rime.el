@@ -114,7 +114,11 @@
       rime-show-candidate 'posframe)
 
 ;; 根据使用的状况设定断言，注释和引号中需要输入中文，可直接切换到英文模式，其他情况使用Rime模式
-(setq rime-disable-predicates '(rime-predicate-prog-in-code-p))              ; 代码中直接关闭
+;; 代码中直接关闭中文，任意英文字符后面输入英文，中文字符且有空格之后输入符号时为英文符号
+(setq rime-disable-predicates '(rime-predicate-prog-in-code-p
+                                rime-predicate-after-ascii-char-p
+                                rime-predicate-punctuation-after-space-cc-p
+                                rime-predicate-punctuation-line-begin-p))
 
 (lazy-load-set-keys
  '(

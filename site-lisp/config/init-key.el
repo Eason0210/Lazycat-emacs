@@ -645,6 +645,7 @@
  '(
    ("C-SPC" . toggle-input-method)
    ("C-`" . rime-send-keybinding)
+   ("C-\\" . rime-force-enable)
    )
  "init-rime")
 
