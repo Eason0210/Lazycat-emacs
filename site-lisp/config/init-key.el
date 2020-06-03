@@ -14,7 +14,7 @@
   (w32-register-hot-key [s-])
 
   (setq w32-pass-apps-to-system nil)
-  (define-key key-translation-map (kbd "<apps>") (kbd "M-x"))
+  (define-key key-translation-map (kbd "<apps>") (kbd "C-\\"))
   )
 
 ;;
