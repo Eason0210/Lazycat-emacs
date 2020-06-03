@@ -99,9 +99,14 @@
                ))
   (add-hook hook '(lambda ()
                     (require 'nox)
+                    (add-to-list 'nox-server-programs
+                                 '((c++-mode c-mode) "clangd")
+                                 )
                     (nox-ensure))))
-(if (eq system-type 'windows-nt) 
-  (setq nox-python-path "c:/Python38/python.exe"))
+(if (eq system-type 'windows-nt)
+    (setq nox-python-path "c:/Python38/python.exe"))
+
+
 
 (lazy-load-set-keys
  '(
