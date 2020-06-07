@@ -96,12 +96,14 @@
                'c-mode-hook
                'c++-mode-hook
                'haskell-mode-hook
+               'swift-mode-hook
                ))
   (add-hook hook '(lambda ()
                     (require 'nox)
                     (add-to-list 'nox-server-programs
-                                 '((c++-mode c-mode) "clangd")
-                                 )
+                                 '((c++-mode c-mode) "clangd"))
+                    (add-to-list 'nox-server-programs
+                                '((swift-mode) "sourcekit-lsp"))
                     (nox-ensure))))
 (if (eq system-type 'windows-nt)
     (setq nox-python-path "c:/Python38/python.exe"))
