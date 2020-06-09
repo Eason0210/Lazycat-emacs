@@ -348,7 +348,7 @@
  "init-dired")
 ;;; ### EAF ###
 ;;; EAF
-(unless (featurep 'cocoa)
+(when (eq system-type 'gnu/linux)
   (lazy-load-global-keys
    '(
      ("s-'" . eaf-open)
@@ -481,6 +481,8 @@
    ("C-4" . insert-changelog-date)      ;插入日志时间 (%Y/%m/%d)
    ("C-&" . switch-to-messages)         ;跳转到 *Messages* buffer
    ("<f12>" . remove-control-M)
+   ("<f6>" . current-line-move-to-top)  ;移动当前行到窗口顶端
+   ("<f7>" . recenter)                  ;移动当前行到窗口中间
    )
  "lazycat-toolkit")
 (eval-after-load 'ielm-mode
@@ -681,8 +683,8 @@
 
 (lazy-load-global-keys
  '(
-   ("<f6>" . flyspell-auto-correct-previous-word)
-   ("<f7>" . flyspell-buffer)
+   ;; ("<f6>" . flyspell-auto-correct-previous-word)
+   ;; ("<f7>" . flyspell-buffer)
    ("C-," . flyspell-correct-wrapper)
    )
  "init-ispell")
