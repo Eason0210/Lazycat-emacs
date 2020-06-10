@@ -27,8 +27,10 @@
     (require 'init-startup)
 
     (require 'init-generic)
+    (require 'init-awesome-tray)
     (require 'lazycat-theme)
-    (lazycat-theme-load-with-sunrise)
+    (lazycat-theme-load-dark)
+    ;; (lazycat-theme-load-with-sunrise)
     (when (eq system-type  'darwin)
       (require 'cache-path-from-shell)
       (exec-path-from-shell-initialize))
@@ -40,7 +42,7 @@
     (require 'redo)
     (require 'highlight-parentheses)
 
-    (require 'init-awesome-tray)
+
     (require 'init-awesome-tab)
     (require 'init-backup)
     (require 'init-line-number)
