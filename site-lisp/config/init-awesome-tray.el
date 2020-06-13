@@ -86,9 +86,9 @@
 (awesome-tray-mode 1)
 
 ;; fixed mode-line issue, keep it as a line
-;; (unless (eq system-type 'gnu/linux)
-;;     (setq-default mode-line-format
-;;                   (remove 'mode-line-buffer-identification mode-line-format)))
+(unless (eq system-type 'gnu/linux)
+    (setq-default mode-line-format
+                  (remove 'mode-line-buffer-identification mode-line-format)))
 
 
 (provide 'init-awesome-tray)
