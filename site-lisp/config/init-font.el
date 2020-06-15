@@ -85,22 +85,25 @@
 ;;; Code:
 
 (when (eq system-type 'darwin)
-  (setq fonts '("Monaco" "STKaiti"))
+  (setq fonts '("Monaco" "冬青黑体简体中文"))
   (set-face-attribute 'default nil :font
                     (format "%s:pixelsize=%d" (car fonts) 15))
-  (setq face-font-rescale-alist '(("STKaiti". 1.2))))
+  ;; (setq face-font-rescale-alist '(("STKaiti". 1.2)))
+  )
 
 (when (eq system-type 'windows-nt)
-  (setq fonts '("Consolas" "华文楷体"))
+  (setq fonts '("Consolas" "Microsoft Yahei"))
   (set-face-attribute 'default nil :font
-                      (format "%s:pixelsize=%d" (car fonts) 22))
-  (setq face-font-rescale-alist '(("华文楷体". 1.1))))
+                      (format "%s:pixelsize=%d" (car fonts) 24))
+  ;; (setq face-font-rescale-alist '(("华文楷体". 1.1)))
+  )
 
 (when (eq system-type 'gnu/linux)
   (setq fonts '("Inconsolata" "STKaiti"))
   (set-face-attribute 'default nil :font
                     (format "%s:pixelsize=%d" (car fonts) 18))
-  (setq face-font-rescale-alist '(("STKaiti". 1.0))))
+  ;; (setq face-font-rescale-alist '(("STKaiti". 1.0)))
+  )
 
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font) charset

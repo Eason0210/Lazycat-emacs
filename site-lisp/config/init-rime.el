@@ -90,8 +90,8 @@
   (setq rime-posframe-properties
         (list :background-color "#333333"
               :foreground-color "#dcdccc"
-              :font "华文楷体"
-              :internal-border-width 10)))
+              :font "Microsoft Yahei"
+              :internal-border-width 15)))
 
 (when (eq system-type 'gnu/linux)
   (setq rime-user-data-dir "/home/aqua0210/.config/fcitx/rime")
@@ -107,16 +107,16 @@
   (setq rime-posframe-properties
         (list :background-color "#333333"
               :foreground-color "#dcdccc"
-              :font "Monaco"
+              :font "冬青黑体简体中文"
               :internal-border-width 10)))
 
 (setq default-input-method "rime"
       rime-show-candidate 'posframe)
+(setq rime-show-preedit 'inline)
 
 ;; 根据使用的状况设定断言，注释和引号中需要输入中文，可直接切换到英文模式，其他情况使用Rime模式
 ;; 代码中直接关闭中文，任意英文字符后面输入英文，中文字符且有空格之后输入符号时为英文符号
 (setq rime-disable-predicates '(rime-predicate-prog-in-code-p
-                                rime-predicate-after-ascii-char-p
                                 rime-predicate-punctuation-after-space-cc-p
                                 rime-predicate-punctuation-line-begin-p))
 

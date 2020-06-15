@@ -253,3 +253,6 @@
 [submodule "flyspell-correct"]
 	path = site-lisp/extensions/flyspell-correct
 	url = https://github.com/d12frosted/flyspell-correct.git
+[submodule "valign"]
+	path = site-lisp/extensions/valign
+	url = https://github.com/casouri/valign.git
