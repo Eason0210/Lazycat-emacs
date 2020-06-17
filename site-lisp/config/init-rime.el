@@ -112,13 +112,19 @@
 
 (setq default-input-method "rime"
       rime-show-candidate 'posframe)
-(setq rime-show-preedit 'inline)
 
-;; 根据使用的状况设定断言，注释和引号中需要输入中文，可直接切换到英文模式，其他情况使用Rime模式
-;; 代码中直接关闭中文，任意英文字符后面输入英文，中文字符且有空格之后输入符号时为英文符号
+(setq rime-show-preedit t)
+(defun rime--display-preedit ())
+
+
+;;代码中直接英文，注释和其他模式中根据断言选择输入模式
 (setq rime-disable-predicates '(rime-predicate-prog-in-code-p
+                                rime-predicate-current-uppercase-letter-p
+                                rime-predicate-after-alphabet-char-p
                                 rime-predicate-punctuation-after-space-cc-p
-                                rime-predicate-punctuation-line-begin-p))
+                                rime-predicate-punctuation-line-begin-p
+                                rime-predicate-space-after-cc-p
+                                ))
 
 (lazy-load-set-keys
  '(
