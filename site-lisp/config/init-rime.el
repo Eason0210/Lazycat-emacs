@@ -90,7 +90,7 @@
   (setq rime-posframe-properties
         (list :background-color "#333333"
               :foreground-color "#dcdccc"
-              :font "Microsoft Yahei"
+              :font "思源宋体-13"
               :internal-border-width 15)))
 
 (when (eq system-type 'gnu/linux)
