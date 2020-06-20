@@ -256,3 +256,6 @@
 [submodule "valign"]
 	path = site-lisp/extensions/valign
 	url = https://github.com/casouri/valign.git
+[submodule "emacs-smart-input-source"]
+	path = site-lisp/extensions/emacs-smart-input-source
+	url = https://github.com/laishulu/emacs-smart-input-source.git

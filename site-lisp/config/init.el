@@ -57,6 +57,7 @@
     (require 'init-performance)
     (require 'init-pwmacro-mode)
     (require 'init-common-lisp)
+    (require 'init-smart-input-source)
     ;; 可以延后加载的
     (run-with-idle-timer
      1 nil
