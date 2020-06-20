@@ -85,16 +85,23 @@
 
 ;;; Code:
 
-
 (when (eq system-type 'windows-nt)
   (setq smart-input-source-external-ism "im-select.exe")
   (setq smart-input-source-english "1033")
   (setq-default smart-input-source-other "2052"))
 
+(when (eq system-type 'darwin)
+  (setq smart-input-source-english "com.apple.keylayout.ABC")
+  (setq-default smart-input-source-other "im.rime.inputmethod.Squirrel.Rime")
+  ;; (setq-default smart-input-source-other "com.apple.inputmethod.SCIM.ITABC")
+  )
 
+;; enable the /respect/ mode
 (smart-input-source-global-respect-mode t)
-(smart-input-source-global-follow-context-mode t)
-(smart-input-source-global-inline-english-mode t)
+
+;; enable the /follow context/ and /inline english/ mode for all buffers
+;; (smart-input-source-global-follow-context-mode t)
+;; (smart-input-source-global-inline-english-mode t)
 
 (provide 'init-smart-input-source)
 
