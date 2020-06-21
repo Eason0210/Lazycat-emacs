@@ -92,9 +92,7 @@
 
 (when (eq system-type 'darwin)
   (setq smart-input-source-english "com.apple.keylayout.ABC")
-  (setq-default smart-input-source-other "im.rime.inputmethod.Squirrel.Rime")
-  ;; (setq-default smart-input-source-other "com.apple.inputmethod.SCIM.ITABC")
-  )
+  (setq-default smart-input-source-other "im.rime.inputmethod.Squirrel.Rime"))
 
 ;; enable the /respect/ mode
 (smart-input-source-global-respect-mode t)
@@ -104,27 +102,16 @@
 ;; (smart-input-source-global-inline-english-mode t)
 
 ;; Input source specific cursor color
-;; (defvar original-cursor-shape nil)
-;; (add-hook 'smart-input-source-set-english-hook
-;;           (lambda ()
-;;             (when (eq original-cursor-shape 'hbar )
-;;               (setq cursor-type 'box))))
-;; (add-hook 'smart-input-source-set-other-hook
-;;           (lambda ()
-;;             (unless original-cursor-shape
-;;               (setq cursor-type 'hbar))))
-
-
-(defvar original-cursor-background nil)
 (add-hook 'smart-input-source-set-english-hook
           (lambda ()
-            (when original-cursor-background
-              (set-face-background 'cursor original-cursor-background))))
+            (setq current-input-method nil)
+            ))
+
 (add-hook 'smart-input-source-set-other-hook
           (lambda ()
-            (unless original-cursor-background
-              (setq original-cursor-background (face-background 'cursor)))
-            (set-face-background 'cursor "orange")))
+            (setq current-input-method "rime")
+            ))
+
 
 (provide 'init-smart-input-source)
 
