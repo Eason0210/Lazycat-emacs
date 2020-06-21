@@ -103,6 +103,29 @@
 ;; (smart-input-source-global-follow-context-mode t)
 ;; (smart-input-source-global-inline-english-mode t)
 
+;; Input source specific cursor color
+;; (defvar original-cursor-shape nil)
+;; (add-hook 'smart-input-source-set-english-hook
+;;           (lambda ()
+;;             (when (eq original-cursor-shape 'hbar )
+;;               (setq cursor-type 'box))))
+;; (add-hook 'smart-input-source-set-other-hook
+;;           (lambda ()
+;;             (unless original-cursor-shape
+;;               (setq cursor-type 'hbar))))
+
+
+(defvar original-cursor-background nil)
+(add-hook 'smart-input-source-set-english-hook
+          (lambda ()
+            (when original-cursor-background
+              (set-face-background 'cursor original-cursor-background))))
+(add-hook 'smart-input-source-set-other-hook
+          (lambda ()
+            (unless original-cursor-background
+              (setq original-cursor-background (face-background 'cursor)))
+            (set-face-background 'cursor "orange")))
+
 (provide 'init-smart-input-source)
 
 ;;; init-smart-input-source.el ends here

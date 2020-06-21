@@ -647,7 +647,7 @@
  '(
    ("C-SPC" . toggle-input-method)
    ("C-`" . rime-send-keybinding)
-   ("C-\\" . rime-force-enable)
+   ("s-m" . rime-force-enable)
    )
  "init-rime")
 
@@ -688,5 +688,11 @@
    ("C-," . flyspell-correct-wrapper)
    )
  "init-ispell")
+
+(lazy-load-global-keys
+ '(
+   ("C-\\" . smart-input-source-switch)
+   )
+ "init-smart-input-source")
 
 (provide 'init-key)

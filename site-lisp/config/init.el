@@ -57,7 +57,6 @@
     (require 'init-performance)
     (require 'init-pwmacro-mode)
     (require 'init-common-lisp)
-    (require 'init-smart-input-source)
     ;; 可以延后加载的
     (run-with-idle-timer
      1 nil
@@ -85,7 +84,8 @@
 
          (when (eq system-type 'gnu/linux)
            (require 'init-eaf))
-         (require 'init-rime)
+         ;; (require 'init-smart-input-source)
+         ;; (require 'init-rime)
          (require 'init-nox)
          (require 'init-sdcv)           ; Don't remove this line
          (require 'init-ispell)
